@@ -13,7 +13,7 @@ export class ApiService {
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   baseURL: any = `${environment.prodAPI}`;
   create(data: any): Observable<any> {
-    let API_URL = `${this.baseURL}/report/add`;
+    let API_URL = `${this.baseURL}/create/report/{id}`;
     return this.http.post(API_URL, data, { headers: this.headers, withCredentials: false }).pipe(map(res => {
       return res || {}
     }),
@@ -29,7 +29,7 @@ export class ApiService {
     )
   }
   update(data: any, id: number): Observable<any> {
-    let API_URL = `${this.baseURL}/update/${id}`;
+    let API_URL = `${this.baseURL}/updateReport/${id}`;
     return this.http.put(API_URL, data, { headers: this.headers, withCredentials: false }).pipe(map(res => {
       return res || {}
     }),
